@@ -1,0 +1,15 @@
+<h1>Todos</h1>
+
+Our todos has <%= Todo.public_count %> todos and counting!
+
+<ul>
+  <% @todos.each do |todo| %>
+    <% unless todo.archived?  %>
+      <li style="cursor: pointer;">
+        <%= link_to todo.title, todo %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "New Todo", new_todo_path %>
